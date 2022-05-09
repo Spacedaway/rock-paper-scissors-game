@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: blue;
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.Title h1 {
+    font-size: 70px;
+    font-weight: lighter;
+    padding-bottom: 30px;
+}
+
+.Stats {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
+.Stats > div {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.Stats p {
+    font-size: x-large;
+    padding-bottom: 10px;
+}
+
+.Moves {
+    justify-content: center;
+}
+
+.Moves h2 {
+    font-size: 40px;
+    padding-bottom: 10px;
+}
+
+.Moves p {
+    padding-bottom: 30px;
+}
+
+.options{
+    display: flex;
+    width: 50vw;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+}
+
+.Rock, .Paper, .Reset, .Scissors{
+    padding: 0.8rem;
+    width: 100px;
+    border-radius: 10px;
+    background: green;
+    outline: none;
+    border-color: green;
+    border: none;
+    cursor: pointer;
+    color: white;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 612px)
+{ 
+    .options{
+        width: 100vw;
+    }
+    .Rock, .Paper, .Reset, .Scissors{
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
