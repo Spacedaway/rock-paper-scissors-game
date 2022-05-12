@@ -14,7 +14,7 @@ xCloseModal.addEventListener("click", () => {
 });
 
 // GLOBALS
-const allChoices = ["scissors", "spock", "paper", "lizard", "rock"];
+const allChoices = ["scissors", "paper", "rock"];
 const startPage = document.querySelector("#startPage");
 const arrChoices = startPage.querySelectorAll("div");
 const resultPage = document.querySelector("#resultPage");
