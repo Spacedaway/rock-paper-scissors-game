@@ -30,15 +30,15 @@ const handleClick = (event) => {
   /* Adding a class to the body element. */
   document.body.classList.toggle("result")
   /* Removing the classes from the userIcon and houseIcon elements. */
-  userIcon.classList.remove("scissors", "spock", "paper", "lizard", "rock");
-  houseIcon.classList.remove("scissors", "spock", "paper", "lizard", "rock");
+  userIcon.classList.remove("scissors", "paper", "rock");
+  houseIcon.classList.remove("scissors", "paper", "rock");
   playAgainButton.style.display = "none";
   messageWhoWin.style.display = "none";
   houseIcon.style.display = "none";
 
   /* Getting the data-choice attribute from the clicked element. */
   const userPlayerChoice = event.target.dataset.choice;
-  const housePlayerIndex = Math.floor(Math.random() * 5);
+  const housePlayerIndex = Math.floor(Math.random() * 3);
   const housePlayerChoice = allChoices[housePlayerIndex];
 
   startPage.style.display = "none";
@@ -46,7 +46,6 @@ const handleClick = (event) => {
 /* Adding the class of the user's choice to the userIcon element. */
   userIcon.classList.toggle(userPlayerChoice);
   let scoreTotal = 0;
-  retrieveScoreFromLocalStorage();
   // PRINT SCORE
   let whoWin = () => {
     scoreTotal = parseInt(score.innerHTML);
@@ -62,15 +61,11 @@ const handleClick = (event) => {
     if (userPlayerChoice == housePlayerChoice) {
       messageWhoWin.innerHTML = "<div id=\"draw-message\">DRAW<div>";
     } else if (
-      userPlayerChoice == "scissors" && (housePlayerChoice == "spock" || housePlayerChoice == "rock") ||
+      userPlayerChoice == "scissors" && (housePlayerChoice == "rock") ||
 
-      userPlayerChoice == "spock" && (housePlayerChoice == "paper" || housePlayerChoice == "lizard") ||
+      userPlayerChoice == "paper" && (housePlayerChoice == "scissors") ||
 
-      userPlayerChoice == "paper" && (housePlayerChoice == "scissors" || housePlayerChoice == "lizard") ||
-
-      userPlayerChoice == "lizard" && (housePlayerChoice == "scissors" || housePlayerChoice == "rock") ||
-
-      userPlayerChoice == "rock" && (housePlayerChoice == "spock" || housePlayerChoice == "paper")
+      userPlayerChoice == "rock" && (housePlayerChoice == "paper")
     ) {
       messageWhoWin.innerHTML = "<div id=\"you-lose-message\">YOU LOSE</div>";
       scoreTotal = scoreTotal - 1;
@@ -100,17 +95,6 @@ const handleClick = (event) => {
 for (let el of arrChoices) {
   el.addEventListener("click", handleClick);
   el.addEventListener("keypress", handleClick);
-}
-
-function retrieveScoreFromLocalStorage() {
-  const score = +window.localStorage.getItem('gameScore') || 0;
-  scoreTotal = score;
-  updateScoreBoard();
-}
-
-function updateScoreBoard() {
-  score.innerText = scoreTotal;
-  window.localStorage.setItem('gameScore', scoreTotal);
 }
 
 playAgainButton.addEventListener("click", () => {
