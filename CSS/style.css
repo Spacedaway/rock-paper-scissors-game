@@ -367,24 +367,16 @@ a:link {
         cursor: default;
     }  
     .scissors {
-        top: -2rem;
-        left: calc(50% - 5.5rem);
-    }
-    .spock {
-        top: 6rem;
-        left: calc(50% - 17.5rem);
+        top: -1rem;
+        right: calc(50% - 15rem);
     }
     .paper {
-        top: 6rem;
-        right: calc(50% - 17.5rem);
-    }
-    .lizard {
-        top: 19rem;
-        left: calc(50% - 12.5rem);
+        top: -1rem;
+        left: calc(50% - 15rem);
     }
     .rock {
-        top: 19rem;
-        right: calc(50% - 12.5rem);
+        top: 15rem;
+        right: calc(50% - 6rem);
     }
     .picked {
         font-size:1.5rem;
