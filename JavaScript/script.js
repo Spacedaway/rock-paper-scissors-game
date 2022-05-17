@@ -13,7 +13,7 @@ xCloseModal.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-// GLOBALS
+/* Declaring variables. */
 const allChoices = ["scissors", "spock", "paper", "lizard", "rock"];
 const startPage = document.querySelector("#startPage");
 const arrChoices = startPage.querySelectorAll("div");
@@ -46,7 +46,6 @@ const handleClick = (event) => {
 /* Adding the class of the user's choice to the userIcon element. */
   userIcon.classList.toggle(userPlayerChoice);
   let scoreTotal = 0;
-  retrieveScoreFromLocalStorage();
   // PRINT SCORE
   let whoWin = () => {
     scoreTotal = parseInt(score.innerHTML);
@@ -97,21 +96,23 @@ const handleClick = (event) => {
   }, 1000);
 }
 
+/* A for loop that is looping through the array of choices and adding an event listener to each
+element. */
 for (let el of arrChoices) {
   el.addEventListener("click", handleClick);
   el.addEventListener("keypress", handleClick);
 }
 
-function retrieveScoreFromLocalStorage() {
-  const score = +window.localStorage.getItem('gameScore') || 0;
-  scoreTotal = score;
-  updateScoreBoard();
-}
+// function retrieveScoreFromLocalStorage() {
+//   const score = +window.localStorage.getItem('gameScore') || 0;
+//   scoreTotal = score;
+//   updateScoreBoard();
+// }
 
-function updateScoreBoard() {
-  score.innerText = scoreTotal;
-  window.localStorage.setItem('gameScore', scoreTotal);
-}
+// function updateScoreBoard() {
+//   score.innerText = scoreTotal;
+//   window.localStorage.setItem('gameScore', scoreTotal);
+// }
 
 playAgainButton.addEventListener("click", () => {
   document.body.classList.remove("result");

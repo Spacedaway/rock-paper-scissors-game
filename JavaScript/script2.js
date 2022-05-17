@@ -13,7 +13,7 @@ xCloseModal.addEventListener("click", () => {
   modal.style.display = "none";
 });
 
-// GLOBALS
+/* Declaring variables. */
 const allChoices = ["scissors", "paper", "rock"];
 const startPage = document.querySelector("#startPage");
 const arrChoices = startPage.querySelectorAll("div");
@@ -60,7 +60,8 @@ const handleClick = (event) => {
     // GAME RULES CONDITIONS
     if (userPlayerChoice == housePlayerChoice) {
       messageWhoWin.innerHTML = "<div id=\"draw-message\">DRAW<div>";
-    } else if (
+    } 
+    else if (
       userPlayerChoice == "scissors" && (housePlayerChoice == "rock") ||
 
       userPlayerChoice == "paper" && (housePlayerChoice == "scissors") ||
@@ -70,7 +71,8 @@ const handleClick = (event) => {
       messageWhoWin.innerHTML = "<div id=\"you-lose-message\">YOU LOSE</div>";
       scoreTotal = scoreTotal - 1;
       showScoreTotal();
-    } else {
+    } 
+    else {
       messageWhoWin.innerHTML = "<div id=\"you-win-message\">YOU WIN</div>;";
       scoreTotal = scoreTotal + 1;
       showScoreTotal();
